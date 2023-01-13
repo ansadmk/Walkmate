@@ -1,4 +1,6 @@
 import 'package:app/forms/home_page.dart';
+import 'package:app/pages/navigation.dart';
+import 'package:app/pages/page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -38,9 +40,7 @@ class _teamsState extends State<teams> {
               children: [
                 IconButton(
                     onPressed: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => MyHomePage(title: ""))),
+                        context, MaterialPageRoute(builder: (_) => navi())),
                     icon: Icon(Icons.arrow_back_ios_new_outlined)),
                 SizedBox(
                   width: 100,

@@ -1,5 +1,7 @@
 import 'package:app/forms/home_page.dart';
 import 'package:app/models/women/fancy.dart';
+import 'package:app/pages/navigation.dart';
+import 'package:app/pages/page1.dart';
 import 'package:app/pages/productsstationary.dart';
 import 'package:app/pages/productskids.dart';
 import 'package:app/pages/productsmen.dart';
@@ -234,8 +236,8 @@ class _giftState extends State<gift> {
         leading: Stack(
           children: [
             IconButton(
-                onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (_) => MyHomePage(title: ''))),
+                onPressed: () => Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => navi())),
                 icon: Icon(Icons.arrow_back_ios_outlined)),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 20, 0, 0),

@@ -1,4 +1,6 @@
 import 'package:app/forms/home_page.dart';
+import 'package:app/pages/navigation.dart';
+import 'package:app/pages/page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:app/pages/productsgiftitems.dart';
@@ -267,8 +269,8 @@ class _menState extends State<men> {
         leading: Stack(
           children: [
             IconButton(
-                onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (_) => MyHomePage(title: ''))),
+                onPressed: () => Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => navi())),
                 icon: Icon(Icons.arrow_back_ios_outlined)),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 20, 0, 0),

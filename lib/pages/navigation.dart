@@ -1,9 +1,13 @@
+import 'package:app/authProvider.dart';
+import 'package:app/forms/loginform.dart';
 import 'package:app/pages/keepintouch.dart';
 import 'package:app/pages/page1.dart';
 import 'package:app/pages/productskids.dart';
 import 'package:app/pages/teams.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:provider/provider.dart';
 
 class navi extends StatefulWidget {
   const navi({super.key});
@@ -36,19 +40,24 @@ class _naviState extends State<navi> {
         size: 30,
       ),
     ];
-    return Scaffold(
-      extendBody: true,
-      body: nav[index],
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        height: 60,
-        animationCurve: Curves.easeInCubic,
-        animationDuration: Duration(milliseconds: 1000),
-        items: items,
-        index: index,
-        onTap: (index) => setState(() => this.index = index),
-        color: Colors.teal,
-      ),
-    );
+    return StreamBuilder<User?>(
+        stream: context.watch<AuthProvider>().stream(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const loginform();
+          return Scaffold(
+            extendBody: true,
+            body: nav[index],
+            bottomNavigationBar: CurvedNavigationBar(
+              backgroundColor: Colors.transparent,
+              height: 60,
+              animationCurve: Curves.easeInCubic,
+              animationDuration: Duration(milliseconds: 1000),
+              items: items,
+              index: index,
+              onTap: (index) => setState(() => this.index = index),
+              color: Colors.teal,
+            ),
+          );
+        });
   }
 }
